@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stud-app
+  labels:
+    app: django
+spec:
+  selector:
+    matchLabels:
+      app: django
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      containers:
+      - image: monsternex007/testimg:latest
+        name: stud-app
+        ports:
+        - containerPort: 8000
+          name: django
+---
+# Creating A Service For Student-App
+apiVersion: v1
+kind: Service
+metadata:
+  name: stud-app
+  labels:
+    app: django
+spec:
+  ports:
+    - port: 8000
+  selector:
+    app: django
+  type: NodePort
