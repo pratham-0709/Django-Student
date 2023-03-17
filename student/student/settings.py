@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-s9k+l0cyf6-d=yx!^+kpdu@jkwt8i&48#bc_z$%wt5#oy^bw+m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'Validation Error!',
